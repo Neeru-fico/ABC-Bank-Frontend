@@ -122,6 +122,48 @@ export class SubmitloanComponent implements OnInit {
 
   }
 
+  transformData(formData: any): any {
+    return {
+      name: {
+        firstName: formData.firstName,
+        middleName: formData.middleName,
+        lastName: formData.lastName
+      },
+      dateOfBirth: formData.dob,
+      maritalStatus: formData.maritalStatus,
+      address: {
+        addressLine1: formData.addressLine1,
+        addressLine2: formData.addressLine2,
+        city: formData.city,
+        state: formData.state,
+        postalCode: formData.postalCode
+      },
+      ssnNumber: formData.ssnNumber,
+      phoneNumber: {
+        homePhone: formData.homePhone,
+        officePhone: formData.officePhone,
+        mobilePhone: formData.mobile
+      },
+      emailAddress: formData.email,
+      loanAmount: formData.loanAmount,
+      loanPurpose: formData.loanPurpose,
+      description: formData.description,
+      employmentDetails: {
+        workExperience: formData.workExperience * 12 + formData.workExperienceMonths,
+        annualSalary: formData.annualSalary,
+        employerName: formData.employerName,
+        currentEmployerAddress: {
+          addressLine1: formData.employerAddressLine1,
+          addressLine2: formData.employerAddressLine2,
+          city: formData.employerCity,
+          state: formData.employerState,
+          postalCode: formData.employerPostalCode
+        },
+        designation: formData.designation
+      }
+    };
+  }
+
 }
 
 // Validator function to check age between 18 and 65
