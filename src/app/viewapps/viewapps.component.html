@@ -1,0 +1,72 @@
+
+<h2>Submitted Applications</h2>
+<p>You can view the applications here:</p>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Application ID</th>
+      <th>Applicant Name</th>
+      <th>Submitted Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let application of applications">
+        <td><a [routerLink]="['/viewapplication', application.applicationId]">{{ application.applicationId }}</a></td>
+
+      <td>{{ application.firstName }}  {{application.middleName}}  {{application.lastName}}</td>
+
+      <td>{{ application.submittedDate }}</td>
+      <td>{{ application.applicationStatus }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Application ID</th>
+      <th>Applicant Name</th>
+      <th>Submitted Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/viewapplication/A001">A001</a></td>
+      <td>John M Doe</td>
+      <td>2024-08-01</td>
+      <td>Pending</td>
+    </tr>
+    <tr>
+      <td><a href="/viewapplication/A002">A002</a></td>
+      <td>Jane A Smith</td>
+      <td>2024-08-02</td>
+      <td>Approved</td>
+    </tr>
+    <tr>
+      <td><a href="/viewapplication/A003">A003</a></td>
+      <td>Robert B Johnson</td>
+      <td>2024-08-03</td>
+      <td>Rejected</td>
+    </tr>
+    <tr>
+      <td><a href="/viewapplication/A004">A004</a></td>
+      <td>Emily C Brown</td>
+      <td>2024-08-04</td>
+      <td>Pending</td>
+    </tr>
+    <tr>
+      <td><a href="/viewapplication/A005">A005</a></td>
+      <td>Michael D Wilson</td>
+      <td>2024-08-05</td>
+      <td>Approved</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<button type="button" [routerLink]="['']" >Back</button>
+

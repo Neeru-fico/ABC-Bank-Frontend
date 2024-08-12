@@ -1,0 +1,586 @@
+<!-- 
+<div class="body1">
+<div class="application-details" >
+  <h1>VIEW APPLICATION</h1>
+  <div class="view-application foreground">
+    <div class="application-summary name-fields">
+      <div>
+        <strong>Application ID:</strong> {{ application.applicationId }}
+      </div>
+      @if(declineRules.length>0){
+        <div>
+          <strong>Application Status: Decline</strong>
+        </div>
+      }
+      @else{
+        <div>
+          <strong>Application Status:</strong> {{ application.applicationStatus }}
+        </div>
+      }
+      <div>
+        <strong>Score:</strong> {{ application.score }}
+      </div>
+       this part of the code is not working check it later, #now its working -->
+<!--  <div *ngIf="declineRules.length==0">
+        <strong>Decline Reason:</strong> {{ application.declineReason || 'None' }}
+      </div>
+      <div *ngIf="declineRules.length>0">
+        <strong>Decline Reason:</strong>
+        <li *ngFor="let rule of declineRules">
+          {{ rule }}
+        </li>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>ORIGINAL APPLICATION</h2>
+  <div class="original-application-outer foreground">
+    <div class="original-application ">
+      <div class="original-application-left name-fields">
+        <div>
+          <label>First Name: </label>
+          <span>{{ application.firstName }}</span>
+        </div>
+        <div>
+          <label>Middle Name: </label>
+          <span>{{ application.middleName }}</span>
+        </div>
+        <div>
+          <label>Last Name: </label>
+          <span>{{ application.lastName }}</span>
+        </div>
+        <div>
+          <label>Date of Birth: </label>
+          <span>{{ application.dateOfBirth}}</span>
+        </div>
+        <div>
+          <label>Marital Status: </label>
+          <span>{{ application.maritalStatus }}</span>
+        </div>
+        <div>
+          <label>SSN Number: </label>
+          <span>{{ application.ssnNumber }}</span>
+        </div>
+        <div>
+          <label>Loan Amount: </label>
+          <span>{{ application.loanAmount }}</span>
+        </div>
+        <div>
+          <label>Loan Purpose: </label>
+          <span>{{ application.loanPurpose }}</span>
+        </div>
+        <div>
+          <label>Description: </label>
+          <span>{{ application.description }}</span>
+        </div>
+      </div>
+      <div class="original-application-right">
+        <div class="original-application-right-1">
+          <h3 class="address-heading">Address</h3>
+          <div class="address secondary-border name-fields">
+            <div>
+              <label>Address Line 1: </label>
+              <span>{{ application.addressLine1 }}</span>
+            </div>
+            <div>
+              <label>Address Line 2: </label>
+              <span>{{ application.addressLine2 }}</span>
+            </div>
+            <div>
+              <label>City: </label>
+              <span>{{ application.city }}</span>
+            </div>
+            <div>
+              <label>State: </label>
+              <span>{{ application.state }}</span>
+            </div>
+            <div>
+              <label>Postal Code: </label>
+              <span>{{ application.postalCode }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="original-application-right-2">
+          <h3>Contact Information</h3>
+          <div class="contact-info secondary-border name-fields">
+            <div>
+              <label>Home Phone: </label>
+              <span>{{ application.phoneHome }}</span>
+            </div>
+            <div>
+              <label>Office Phone: </label>
+              <span>{{ application.phoneOffice }}</span>
+            </div>
+            <div>
+              <label>Mobile: </label>
+              <span>{{ application.phoneMobile }}</span>
+            </div>
+            <div>
+              <label>Email Address: </label>
+              <span>{{ application.emailAddress }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <h3 class="employment-details-heading">Employment Details</h3>
+    <div class="employment-details  secondary-border ">
+      <div class="employment-info name-fields">
+        <div>
+          <div>
+            <label>Employer Name: </label>
+            <span>{{ application.employerName }}</span>
+          </div>
+          <div>
+            <label>Annual Salary: </label>
+            <span>{{ application.annualSalary }}</span>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Work Experience: </label>
+            <span>{{ application.workExperienceYears }} years {{ application.workExperienceMonths }} months</span>
+          </div>
+          <div>
+            <label>Designation: </label>
+            <span>{{ application.designation }}</span>
+          </div>
+        </div>
+        <div></div>
+      </div>
+       <label>Address</label> -->
+<!--   <div class="employment-address name-fields">
+        <div>
+          <label>Address Line 1: </label>
+          <span>{{ application.employerAddressLine1 }}</span>
+        </div>
+        <div>
+          <label>Address Line 2: </label>
+          <span>{{ application.employerAddressLine2 }}</span>
+        </div>
+        <div>
+          <label>City: </label>
+          <span>{{ application.employerCity }}</span>
+        </div>
+        <div>
+          <label>State: </label>
+          <span>{{ application.employerState }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="last">
+    <button type="button" [routerLink]="['/viewapps']">Back</button>
+  </div>
+
+</div>
+</div> -->
+
+
+<!-- <div class="body1">
+  <div class="application-details">
+    <h1>VIEW APPLICATION</h1>
+    <div class="view-application foreground">
+      <div class="application-summary name-fields">
+
+        <div>
+          <strong>Application ID:</strong> A001
+        </div>
+        <div>
+          <strong>Application Status:</strong> Approved
+        </div>
+        <div>
+          <strong>Score:</strong> 85
+        </div>
+
+
+        <div>
+          <strong>Decline Reason:</strong> None
+        </div>
+        <div>
+          <strong>Decline Reason:</strong>
+          <ul>
+            <li>None</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>ORIGINAL APPLICATION</h2>
+    <div class="original-application-outer foreground">
+      <div class="original-application">
+        <div class="original-application-left name-fields">
+          <div>
+            <label>First Name: </label>
+            <span>John</span>
+          </div>
+          <div>
+            <label>Middle Name: </label>
+            <span>M</span>
+          </div>
+          <div>
+            <label>Last Name: </label>
+            <span>Doe</span>
+          </div>
+          <div>
+            <label>Date of Birth: </label>
+            <span>1990-01-01</span>
+          </div>
+          <div>
+            <label>Marital Status: </label>
+            <span>Single</span>
+          </div>
+          <div>
+            <label>SSN Number: </label>
+            <span>123-45-6789</span>
+          </div>
+          <div>
+            <label>Loan Amount: </label>
+            <span>$100,000</span>
+          </div>
+          <div>
+            <label>Loan Purpose: </label>
+            <span>Home Purchase</span>
+          </div>
+          <div>
+            <label>Description: </label>
+            <span>Purchase of first home</span>
+          </div>
+        </div>
+        <div class="original-application-right">
+          <div class="original-application-right-1">
+            <h3 class="address-heading">Address</h3>
+            <div class="address secondary-border name-fields">
+              <div>
+                <label>Address Line 1: </label>
+                <span>123 Main St</span>
+              </div>
+              <div>
+                <label>Address Line 2: </label>
+                <span>Apt 4B</span>
+              </div>
+              <div>
+                <label>City: </label>
+                <span>Anytown</span>
+              </div>
+              <div>
+                <label>State: </label>
+                <span>NY</span>
+              </div>
+              <div>
+                <label>Postal Code: </label>
+                <span>12345</span>
+              </div>
+            </div>
+          </div>
+          <div class="original-application-right-2">
+            <h3>Contact Information</h3>
+            <div class="contact-info secondary-border name-fields">
+              <div>
+                <label>Home Phone: </label>
+                <span>(555) 123-4567</span>
+              </div>
+              <div>
+                <label>Office Phone: </label>
+                <span>(555) 987-6543</span>
+              </div>
+              <div>
+                <label>Mobile: </label>
+                <span>(555) 555-5555</span>
+              </div>
+              <div>
+                <label>Email Address: </label>
+                <span>john.doeexample.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="employment-details-heading">Employment Details</h3>
+      <div class="employment-details secondary-border">
+        <div class="employment-info name-fields">
+          <div>
+            <div>
+              <label>Employer Name: </label>
+              <span>ABC Corp</span>
+            </div>
+            <div>
+              <label>Annual Salary: </label>
+              <span>$75,000</span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <label>Work Experience: </label>
+              <span>5 years 3 months</span>
+            </div>
+            <div>
+              <label>Designation: </label>
+              <span>Software Engineer</span>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      
+        <div class="employment-address name-fields">
+          <div>
+            <label>Address Line 1: </label>
+            <span>456 Corporate Ave</span>
+          </div>
+          <div>
+            <label>Address Line 2: </label>
+            <span>Suite 300</span>
+          </div>
+          <div>
+            <label>City: </label>
+            <span>Metropolis</span>
+          </div>
+          <div>
+            <label>State: </label>
+            <span>CA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="last">
+      <button type="button" [routerLink]="['/viewapps']">Back</button>
+    </div>
+
+  </div>
+</div>
+ -->
+
+
+
+
+
+
+
+
+<div class="body1">
+  <div class="application-details">
+    <h1>Your Application</h1>
+    <div class="view-application foreground">
+      <div class="application-summary name-fields">
+
+        <div>
+          <div>
+            <strong>Application ID:</strong> A001
+          </div>
+          <!-- Check if there are decline rules -->
+          <div>
+            <strong>Status:</strong> Approved
+          </div>
+          <div>
+            <strong>Score:</strong> 85
+          </div>
+        </div>
+
+
+        <!-- This part of the code is working now -->
+        <div>
+          <strong>Decline Reason:</strong>
+          <ul>
+            <li>None</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="accordion">
+
+      <div class="tab">
+        <input type="checkbox" name="accordion-1" id="personalInformation" checked>
+        <label for="personalInformation" class="tab__label">Personal Information</label>
+        <div class="tab__content">
+
+          <div class="original-application-left name-fields">
+
+
+            <div>
+              <label>First Name: </label>
+              <span> John</span>
+            </div>
+            <div>
+              <label>Middle Name: </label>
+              <span> M</span>
+            </div>
+            <div>
+              <label>Last Name: </label>
+              <span> Doe</span>
+            </div>
+            <div>
+              <label>Date of Birth: </label>
+              <span> 1990-01-01</span>
+            </div>
+
+            <div>
+              <label>Marital Status: </label>
+              <span> Single</span>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+
+
+      <div class="tab">
+        <input type="checkbox" name="accordion-1" id="loanInformation">
+        <label for="loanInformation" class="tab__label">Loan Information</label>
+        <div class="tab__content">
+
+          <div class="loanInformation">
+            <div>
+              <label>SSN Number: </label>
+              <span> 123</span>
+            </div>
+            <div>
+              <label>Loan Amount: </label>
+              <span> $100,000</span>
+            </div>
+            <div>
+              <label>Loan Purpose: </label>
+              <span> Home Purchase</span>
+            </div>
+            <div>
+              <label>Description: </label>
+              <span> Purchase of first home</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="tab">
+        <input type="checkbox" name="accordion-1" id="address">
+        <label for="address" class="tab__label">Address</label>
+        <div class="tab__content">
+          <div class="address secondary-border name-fields">
+            <div>
+              <label>Address Line 1: </label>
+              <span>123 Main St</span>
+            </div>
+            <div>
+              <label>Address Line 2: </label>
+              <span>Apt 4B</span>
+            </div>
+            <div>
+              <label>City: </label>
+              <span>Anytown</span>
+            </div>
+            <div>
+              <label>State: </label>
+              <span>NY</span>
+            </div>
+            <div>
+              <label>Postal Code: </label>
+              <span>12345</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab">
+        <input type="checkbox" name="accordion-1" id="contactInformation">
+        <label for="contactInformation" class="tab__label">Contact Information</label>
+        <div class="tab__content">
+          <div class="contact-info secondary-border name-fields">
+            <div>
+              <label>Home Phone: </label>
+              <span>(555) 123-4567</span>
+            </div>
+            <div>
+              <label>Office Phone: </label>
+              <span>(555) 987-6543</span>
+            </div>
+            <div>
+              <label>Mobile: </label>
+              <span>(555) 555-5555</span>
+            </div>
+            <div>
+              <label>Email Address: </label>
+              <span>john.doeexample.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab">
+        <input type="checkbox" name="accordion-1" id="employmentDeatils">
+        <label for="employmentDeatils" class="tab__label">Employment Deatils</label>
+        <div class="tab__content">
+          <div class="employment-details secondary-border">
+            <!-- <div class="employment-info name-fields"> -->
+
+            <div>
+              <label>Employer Name: </label>
+              <span>ABC Corp</span>
+            </div>
+            <div>
+              <label>Annual Salary: </label>
+              <span>$75,000</span>
+            </div>
+
+            <div>
+              <label>Work Experience: </label>
+              <span>5 years 3 months</span>
+            </div>
+            <div>
+              <label>Designation: </label>
+              <span>Software Engineer</span>
+            </div>
+
+            <!-- </div> -->
+            <!-- <label>Address</label> -->
+            <!-- <div class="employment-address name-fields"> -->
+            <div>
+              <label>Address Line 1: </label>
+              <span>456 Corporate Ave</span>
+            </div>
+            <div>
+              <label>Address Line 2: </label>
+              <span>Suite 300</span>
+            </div>
+            <div>
+              <label>City: </label>
+              <span>Metropolis</span>
+            </div>
+            <div>
+              <label>State: </label>
+              <span>CA</span>
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+
+
+      <!-- <div class="tab">
+    <input type="checkbox" name="accordion-1" id="cb2">
+    <label for="cb2" class="tab__label">Open multiple</label>
+    <div class="tab__content">
+      <p>Using <code>&lt;input type="checkbox"&gt;</code> allows to have several tabs open at the same time.</p>
+    </div>
+  </div> -->
+    </section>
+
+
+    <div class="last">
+      <button type="button" [routerLink]="['/viewapps']">Back</button>
+    </div>
+
+  </div>
+</div>
