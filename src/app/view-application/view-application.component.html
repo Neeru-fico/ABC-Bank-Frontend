@@ -370,14 +370,14 @@
 
         <div>
           <div>
-            <strong>Application ID:</strong> A001
+            <strong>Application ID:</strong> {{ application.application.id }}
           </div>
           <!-- Check if there are decline rules -->
           <div>
-            <strong>Status:</strong> Approved
+            <strong>Status:</strong> {{ application.applicationStatus }}
           </div>
           <div>
-            <strong>Score:</strong> 85
+            <strong>Score:</strong> {{ application.score }}
           </div>
         </div>
 
@@ -405,24 +405,24 @@
 
             <div>
               <label>First Name: </label>
-              <span> John</span>
+              <span> {{ application.application.name.firstName }}</span>
             </div>
             <div>
               <label>Middle Name: </label>
-              <span> M</span>
+              <span> {{ application.application.name.middleName }}</span>
             </div>
             <div>
               <label>Last Name: </label>
-              <span> Doe</span>
+              <span> {{ application.application.name.lastName }}</span>
             </div>
             <div>
               <label>Date of Birth: </label>
-              <span> 1990-01-01</span>
+              <span> {{ application.application.dateOfBirth}}</span>
             </div>
 
             <div>
               <label>Marital Status: </label>
-              <span> Single</span>
+              <span> {{ application.application.maritalStatus}}</span>
             </div>
 
           </div>
@@ -444,19 +444,19 @@
           <div class="loanInformation">
             <div>
               <label>SSN Number: </label>
-              <span> 123</span>
+              <span> {{ application.application.ssnNumber}}</span>
             </div>
             <div>
               <label>Loan Amount: </label>
-              <span> $100,000</span>
+              <span> {{ application.application.loanAmount}}</span>
             </div>
             <div>
               <label>Loan Purpose: </label>
-              <span> Home Purchase</span>
+              <span> {{ application.application.loanPurpose}}</span>
             </div>
             <div>
               <label>Description: </label>
-              <span> Purchase of first home</span>
+              <span> {{ application.application.description}}</span>
             </div>
           </div>
         </div>
@@ -471,23 +471,23 @@
           <div class="address secondary-border name-fields">
             <div>
               <label>Address Line 1: </label>
-              <span>123 Main St</span>
+              <span>{{ application.application.address.addressLine1}}</span>
             </div>
             <div>
               <label>Address Line 2: </label>
-              <span>Apt 4B</span>
+              <span>{{ application.application.address.addressLine2}}</span>
             </div>
             <div>
               <label>City: </label>
-              <span>Anytown</span>
+              <span>{{ application.application.address.city}}</span>
             </div>
             <div>
               <label>State: </label>
-              <span>NY</span>
+              <span>{{ application.application.address.state}}</span>
             </div>
             <div>
               <label>Postal Code: </label>
-              <span>12345</span>
+              <span>{{ application.application.address.postalCode}}</span>
             </div>
           </div>
         </div>
@@ -500,19 +500,19 @@
           <div class="contact-info secondary-border name-fields">
             <div>
               <label>Home Phone: </label>
-              <span>(555) 123-4567</span>
+              <span>{{ application.application.phoneNumber.homePhone}}</span>
             </div>
             <div>
               <label>Office Phone: </label>
-              <span>(555) 987-6543</span>
+              <span>{{ application.application.phoneNumber.officePhone}}</span>
             </div>
             <div>
               <label>Mobile: </label>
-              <span>(555) 555-5555</span>
+              <span>{{ application.application.phoneNumber.mobilePhone}}</span>
             </div>
             <div>
               <label>Email Address: </label>
-              <span>john.doeexample.com</span>
+              <span>{{ application.application.emailAddress}}</span>
             </div>
           </div>
         </div>
@@ -527,20 +527,20 @@
 
             <div>
               <label>Employer Name: </label>
-              <span>ABC Corp</span>
+              <span>{{ application.application.employmentDetails.employerName}}</span>
             </div>
             <div>
               <label>Annual Salary: </label>
-              <span>$75,000</span>
+              <span>{{ application.application.employmentDetails.annualSalary}}</span>
             </div>
 
             <div>
               <label>Work Experience: </label>
-              <span>5 years 3 months</span>
+              <span>{{ application.application.employmentDetails.workExperience}}</span>
             </div>
             <div>
               <label>Designation: </label>
-              <span>Software Engineer</span>
+              <span>{{ application.application.designation}}</span>
             </div>
 
             <!-- </div> -->
@@ -548,33 +548,24 @@
             <!-- <div class="employment-address name-fields"> -->
             <div>
               <label>Address Line 1: </label>
-              <span>456 Corporate Ave</span>
+              <span>{{ application.application.employmentDetails.currentEmployerAddress.addressLine1}}</span>
             </div>
             <div>
               <label>Address Line 2: </label>
-              <span>Suite 300</span>
+              <span>{{ application.application.employmentDetails.currentEmployerAddress.addressLine2}}</span>
             </div>
             <div>
               <label>City: </label>
-              <span>Metropolis</span>
+              <span>{{ application.application.employmentDetails.currentEmployerAddress.city}}</span>
             </div>
             <div>
               <label>State: </label>
-              <span>CA</span>
+              <span>{{ application.application.employmentDetails.currentEmployerAddress.state}}</span>
             </div>
           </div>
           <!-- </div> -->
         </div>
       </div>
-
-
-      <!-- <div class="tab">
-    <input type="checkbox" name="accordion-1" id="cb2">
-    <label for="cb2" class="tab__label">Open multiple</label>
-    <div class="tab__content">
-      <p>Using <code>&lt;input type="checkbox"&gt;</code> allows to have several tabs open at the same time.</p>
-    </div>
-  </div> -->
     </section>
 
 

@@ -20,7 +20,7 @@ export const routes: Routes = [
         component:ViewappsComponent
     },
     {
-        path: 'viewapplication',
+        path: 'viewapplication/:id',
         component:ViewApplicationComponent
     }
 ];

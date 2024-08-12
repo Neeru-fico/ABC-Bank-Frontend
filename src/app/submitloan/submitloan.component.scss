@@ -298,6 +298,12 @@ label{
   margin-top: 10px;
 }
 
-#workExperienceMonths{
-  margin-top: 10px;
+
+.work-experience{
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-experience > div{
+  width: 48%;
 }

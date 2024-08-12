@@ -19,6 +19,7 @@ export class ViewappsComponent implements OnInit {
   ngOnInit(): void {
     this.viewappsService.getApplications().subscribe(data => {
       this.applications = data;
+      console.log(this.applications)
     });
   }
 }

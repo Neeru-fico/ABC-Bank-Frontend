@@ -51,8 +51,8 @@ export class ViewApplicationComponent implements OnInit {
     if (id) {
       console.log("abcd")
       this.viewappsService.getApplicationById(Number(id)).subscribe(data => {
-        this.application = data
-
+      this.application = data
+      console.log(this.application)
         this.declineRules = this.application.declineReason.split('.');
         // this.applicantSalary = this.application.annualSalary ;
         // this.applicantExp = this.application.workExperienceYears*12 + this.application.workExperienceMonths;

@@ -20,6 +20,9 @@
     <div>
       <label for="middleName">Middle Name</label>
       <input id="middleName" placeholder="Enter your middle name" formControlName="middleName">
+      <div *ngIf="applicationForm.get('middleName')?.invalid && applicationForm.get('middleName')?.touched">
+        <small *ngIf="applicationForm.get('middleName')?.errors?.['maxLength']">Maximum length is 255.</small>
+      </div>
     </div>
 
     <div>
@@ -33,9 +36,12 @@
 
     <div>
       <label for="dateOfBirth">Date of Birth<span class="required">*</span></label>
-      <input id="dateOfBirth" type="date" placeholder="Select your date of birth" formControlName="dateOfBirth">
+      <input max={{maxDate}} min={{minDate}} id="dateOfBirth" type="date" placeholder="Select your date of birth"
+        formControlName="dateOfBirth">
       <div *ngIf="applicationForm.get('dateOfBirth')?.invalid && applicationForm.get('dateOfBirth')?.touched">
         <small *ngIf="applicationForm.get('dateOfBirth')?.errors?.['required']">Date of Birth is required.</small>
+        <small *ngIf="applicationForm.get('dateOfBirth')?.errors?.['ageInvalid']">Age must be between 18 and 65
+          years.</small>
       </div>
     </div>
 
@@ -64,7 +70,8 @@
 
     <div>
       <label for="loanAmount">Loan Amount<span class="required">*</span></label>
-      <input id="loanAmount" type="number" placeholder="Enter the loan amount in $" formControlName="loanAmount">
+      <input id="loanAmount" type="number" min="0" placeholder="Enter the loan amount in $"
+        formControlName="loanAmount">
       <div *ngIf="applicationForm.get('loanAmount')?.invalid && applicationForm.get('loanAmount')?.touched">
         <small *ngIf="applicationForm.get('loanAmount')?.errors?.['required']">Loan Amount is required.</small>
       </div>
@@ -175,32 +182,44 @@
       </div>
 
       <label for="annualSalary">Annual Salary<span class="required">*</span></label>
-      <input type="number" id="annualSalary" placeholder="Enter your annual salary" formControlName="annualSalary">
+      <input min="10000" type="number" id="annualSalary" placeholder="Enter your annual salary in $"
+        formControlName="annualSalary">
       <div *ngIf="applicationForm.get('annualSalary')?.invalid && applicationForm.get('annualSalary')?.touched">
         <small *ngIf="applicationForm.get('annualSalary')?.errors?.['required']">Annual Salary is required.</small>
         <small *ngIf="applicationForm.get('annualSalary')?.errors?.['pattern']">Must be numeric.</small>
+        <small *ngIf="applicationForm.get('annualSalary')?.errors?.['min']">Must greater than $10,000</small>
       </div>
 
       <label for="workExperience">Work Experience<span class="required">*</span></label>
       <div class="work-experience">
-        <input type="number" id="workExperienceYears" name="workExperienceYears" placeholder="Years of experience"
-          formControlName="workExperienceYears">
-        <div
-          *ngIf="applicationForm.get('workExperienceYears')?.invalid && applicationForm.get('workExperienceYears')?.touched">
-          <small *ngIf="applicationForm.get('workExperienceYears')?.errors?.['required']">Work Experience year is
-            required.</small>
-          <small *ngIf="applicationForm.get('workExperienceYears')?.errors?.['pattern']">Must be numeric.</small>
+        <div>
+          <input type="number" min="0" id="workExperienceYears" name="workExperienceYears" placeholder="Years*"
+            formControlName="workExperienceYears">
+          <div
+            *ngIf="applicationForm.get('workExperienceYears')?.invalid && applicationForm.get('workExperienceYears')?.touched">
+            <small *ngIf="applicationForm.get('workExperienceYears')?.errors?.['required']">Work Experience year is
+              required.</small>
+            <small *ngIf="applicationForm.get('workExperienceYears')?.errors?.['pattern']">Must be numeric.</small>
+          </div>
+        </div>
+        <div>
+
+
+          <input type="number" id="workExperienceMonths" name="workExperienceMonths" placeholder="Months*"
+            formControlName="workExperienceMonths">
+          <div
+            *ngIf="applicationForm.get('workExperienceMonths')?.invalid && applicationForm.get('workExperienceMonths')?.touched">
+            <small *ngIf="applicationForm.get('workExperienceMonths')?.errors?.['required']">Work Experience Months are
+              required.</small>
+            <small *ngIf="applicationForm.get('workExperienceMonths')?.errors?.['pattern']">Must be numeric.</small>
+          </div>
         </div>
 
-        <input type="number" id="workExperienceMonths" name="workExperienceMonths" placeholder="Months of experience"
-          formControlName="workExperienceMonths">
-        <div
-          *ngIf="applicationForm.get('workExperienceMonths')?.invalid && applicationForm.get('workExperienceMonths')?.touched">
-          <small *ngIf="applicationForm.get('workExperienceMonths')?.errors?.['required']">Work Experience Months are
-            required.</small>
-          <small *ngIf="applicationForm.get('workExperienceMonths')?.errors?.['pattern']">Must be numeric.</small>
-        </div>
       </div>
+      <div *ngIf="applicationForm.errors?.['workExperienceInvalid'] && (applicationForm.get('workExperienceYears')?.touched || applicationForm.get('workExperienceMonths')?.touched)">
+        <small>Work experience must be more than 6 months.</small>
+      </div>
+      
 
       <label for="designation">Designation</label>
       <input type="text" id="designation" placeholder="Enter your designation" formControlName="designation">
