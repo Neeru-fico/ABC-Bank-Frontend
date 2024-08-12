@@ -3,10 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Application {
-  applicationId: number;
-  firstName:string;
+  applicationID: number;
+  name:{
+    firstName:string;
   middleName:string,
   lastName:string,
+  }
+  
   submittedDate: Date;
   applicationStatus: string;
 }
@@ -15,7 +18,7 @@ export interface Application {
   providedIn: 'root'
 })
 export class ViewappsService {
-  private apiUrl = 'http://localhost:8080/phansbank/v1/viewapps'; // Replace with your actual backend URL
+  private apiUrl = 'http://localhost:8080/applications'; // Replace with your actual backend URL
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +26,6 @@ export class ViewappsService {
     return this.http.get<Application[]>(this.apiUrl);
   }
   getApplicationById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+    return this.http.get<any>(`http://localhost:8080/application/${id}`);
   }
 }
