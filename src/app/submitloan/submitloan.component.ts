@@ -88,8 +88,9 @@ export class SubmitloanComponent implements OnInit {
     }
 
     let applicationData= this.applicationForm.value;
-
+    applicationData = this.transformData(applicationData)
       console.log(applicationData)
+
         this.checkSubmit=true;
       this.http.post('http://localhost:8080/application', applicationData)
         .subscribe(
@@ -129,7 +130,7 @@ export class SubmitloanComponent implements OnInit {
         middleName: formData.middleName,
         lastName: formData.lastName
       },
-      dateOfBirth: formData.dob,
+      dateOfBirth: formData.dateOfBirth,
       maritalStatus: formData.maritalStatus,
       address: {
         addressLine1: formData.addressLine1,
@@ -140,16 +141,16 @@ export class SubmitloanComponent implements OnInit {
       },
       ssnNumber: formData.ssnNumber,
       phoneNumber: {
-        homePhone: formData.homePhone,
-        officePhone: formData.officePhone,
-        mobilePhone: formData.mobile
+        homePhone: formData.phoneHome,
+        officePhone: formData.phoneOffice,
+        mobilePhone: formData.phoneMobile
       },
-      emailAddress: formData.email,
+      emailAddress: formData.emailAddress,
       loanAmount: formData.loanAmount,
       loanPurpose: formData.loanPurpose,
       description: formData.description,
       employmentDetails: {
-        workExperience: formData.workExperience * 12 + formData.workExperienceMonths,
+        workExperience: formData.workExperienceYears * 12 + formData.workExperienceMonths,
         annualSalary: formData.annualSalary,
         employerName: formData.employerName,
         currentEmployerAddress: {

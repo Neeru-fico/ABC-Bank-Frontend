@@ -1,5 +1,5 @@
-describe('Check Command Delay', () => {
-  it('should apply a 1-second delay to commands', () => {
+describe('Check Command Delay', ()=> {
+  it('should apply a 1-second delay to commands', ()=> {
     cy.visit('http://localhost:4200/');
     
     // Add additional commands to check the delay effect
@@ -21,6 +21,7 @@ describe('Check Command Delay', () => {
     cy.get('#state').type('NY').wait(1000);
     cy.get('#postalCode').type('12345').wait(1000);
     cy.get('#phoneHome').type('7845678980').wait(1000);
+    cy.get('#phoneOffice').type('7845678980').wait(1000);
     cy.get('#phoneMobile').type('7845678980').wait(1000);
     cy.get('#emailAddress').type('qfGKl@example.com').wait(1000);
 
