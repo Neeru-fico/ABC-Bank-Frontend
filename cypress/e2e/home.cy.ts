@@ -24,6 +24,7 @@ describe('Check Command Delay', ()=> {
     cy.get('#state').type('NY');
     cy.get('#postalCode').type('12345');
     cy.get('#phoneHome').type('7845678980');
+    cy.get('#phoneOffice').type('7845678980');
     cy.get('#phoneMobile').type('7845678980');
     cy.get('#emailAddress').type('qfGKl@example.com').wait(1000);
 
@@ -40,9 +41,16 @@ describe('Check Command Delay', ()=> {
 
     cy.get('#submit').click()
 
-    cy.get('#viewApplications').click().wait(10000)
+    cy.get('#viewApplications').click().wait(12000)
 
-    cy.get('table tr:last-child td a').click();
+    cy.get('table tr:last-child td a').click().wait(2000);
 
+    cy.get('label[for="loanInformation"]').click().wait(1000);
+    cy.get('label[for="address"]').click().wait(1000)
+    cy.get('label[for="contactInformation"]').click().wait(1000)
+    cy.get('label[for="employmentDeatils"]').click().wait(1000)
+
+    cy.get('button[ng-reflect-router-link="/viewapps"]').click().wait(1000);
+    cy.get('button[type="button"]').contains('Back').click();
   });
 });
