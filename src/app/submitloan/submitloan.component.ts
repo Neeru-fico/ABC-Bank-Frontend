@@ -110,12 +110,13 @@ export class SubmitloanComponent implements OnInit {
     }
     else {
       this.displayErrors();
-      const errorsDiv = document.getElementsByClassName('errors');
-      console.log("error div", errorsDiv.length)
-      if (errorsDiv.length !== 0) {
-        const errorsDivElement = errorsDiv[0] as HTMLElement;
-        window.scrollTo(0, errorsDivElement.offsetTop);
-      }
+      setTimeout(() => {
+        const errorsDiv = document.getElementsByClassName('errors');
+        if (errorsDiv.length !== 0) {
+          const errorsDivElement = errorsDiv[0] as HTMLElement;
+          window.scrollTo(0, errorsDivElement.offsetTop-50);
+        }
+      }, 500); // Wait for 1 second
     }
   }
   displayErrors() {
