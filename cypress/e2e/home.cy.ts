@@ -5,15 +5,15 @@ describe('Check Command Delay', ()=> {
     // Add additional commands to check the delay effect
     cy.get('#submitloan').click().wait(1000);
     
-    cy.get('#firstName').type('Neeru').wait(1000);
-    cy.get('#lastName').type('Giri').wait(1000);
+    cy.get('#firstName').type('Nirupma').wait(1000);
+    cy.get('#lastName').type('Agrahri').wait(1000);
     
     cy.get('#dateOfBirth').type('1990-01-01').wait(1000);
     
     cy.get('#maritalStatus').select('Single').wait(1000);
     cy.get('#ssnNumber').type('1024').wait(1000);
 
-    cy.get('#loanAmount').type('10000').wait(1000);
+    cy.get('#loanAmount').type('1000').wait(1000);
     cy.get('#loanPurpose').select('Debt').wait(1000);
     cy.get('#addressLine1').type('123 Main St').wait(1000);
     cy.get('#addressLine2').type('Apt 4B').wait(1000);
@@ -26,10 +26,10 @@ describe('Check Command Delay', ()=> {
     cy.get('#emailAddress').type('qfGKl@example.com').wait(1000);
 
     cy.get('#employerName').type('Shubh').wait(1000);
-    cy.get('#annualSalary').type('10000000').wait(1000);
+    cy.get('#annualSalary').type('10001').wait(1000);
 
-    cy.get('#workExperienceYears').type('5').wait(1000);
-    cy.get('#workExperienceMonths').type('6').wait(1000);
+    cy.get('#workExperienceYears').type('0').wait(1000);
+    cy.get('#workExperienceMonths').type('4').wait(1000);
 
     cy.get('#employerAddressLine1').type('D 227').wait(1000);
     cy.get('#employerCity').type('Bangalore').wait(1000);

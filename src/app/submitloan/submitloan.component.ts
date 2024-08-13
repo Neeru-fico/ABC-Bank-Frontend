@@ -22,8 +22,8 @@ export class SubmitloanComponent implements OnInit {
   formErrors: string[] = [];
 
   minDate:string | null= null;
-  // minDate.setFulYear(minDate.getfulYear()-18);
   maxDate:string | null= null;
+  submitted = false;
 
 
   constructor(
@@ -76,6 +76,7 @@ export class SubmitloanComponent implements OnInit {
 
   submitForm() {
     this.formErrors = [];
+    this.submitted = true;
 
     if (this.applicationForm.valid) {
 
@@ -108,7 +109,6 @@ export class SubmitloanComponent implements OnInit {
         );
     }
     else {
-      console.log("there");
       this.displayErrors();
     }
   }
