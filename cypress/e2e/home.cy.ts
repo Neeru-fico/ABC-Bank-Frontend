@@ -37,6 +37,9 @@ describe('Check Command Delay', () => {
 
     cy.get('#submit').click()
 
+    cy.get('#viewApplications').click()
+
+    cy.get('#appID').click();
 
   });
 });
