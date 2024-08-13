@@ -22,8 +22,8 @@ export class SubmitloanComponent implements OnInit {
   formErrors: string[] = [];
 
   minDate:string | null= null;
-  // minDate.setFulYear(minDate.getfulYear()-18);
   maxDate:string | null= null;
+  submitted = false;
 
 
   constructor(
@@ -76,6 +76,7 @@ export class SubmitloanComponent implements OnInit {
 
   submitForm() {
     this.formErrors = [];
+    this.submitted = true;
 
     if (this.applicationForm.valid) {
 
@@ -88,8 +89,9 @@ export class SubmitloanComponent implements OnInit {
     }
 
     let applicationData= this.applicationForm.value;
-
+    applicationData = this.transformData(applicationData)
       console.log(applicationData)
+
         this.checkSubmit=true;
       this.http.post('http://localhost:8080/application', applicationData)
         .subscribe(
@@ -107,7 +109,6 @@ export class SubmitloanComponent implements OnInit {
         );
     }
     else {
-      console.log("there");
       this.displayErrors();
     }
   }
@@ -120,6 +121,48 @@ export class SubmitloanComponent implements OnInit {
     }
     console.log(this.formErrors)
 
+  }
+
+  transformData(formData: any): any {
+    return {
+      name: {
+        firstName: formData.firstName,
+        middleName: formData.middleName,
+        lastName: formData.lastName
+      },
+      dateOfBirth: formData.dateOfBirth,
+      maritalStatus: formData.maritalStatus,
+      address: {
+        addressLine1: formData.addressLine1,
+        addressLine2: formData.addressLine2,
+        city: formData.city,
+        state: formData.state,
+        postalCode: formData.postalCode
+      },
+      ssnNumber: formData.ssnNumber,
+      phoneNumber: {
+        homePhone: formData.phoneHome,
+        officePhone: formData.phoneOffice,
+        mobilePhone: formData.phoneMobile
+      },
+      emailAddress: formData.emailAddress,
+      loanAmount: formData.loanAmount,
+      loanPurpose: formData.loanPurpose,
+      description: formData.description,
+      employmentDetails: {
+        workExperience: formData.workExperienceYears * 12 + formData.workExperienceMonths,
+        annualSalary: formData.annualSalary,
+        employerName: formData.employerName,
+        currentEmployerAddress: {
+          addressLine1: formData.employerAddressLine1,
+          addressLine2: formData.employerAddressLine2,
+          city: formData.employerCity,
+          state: formData.employerState,
+          postalCode: formData.employerPostalCode
+        },
+        designation: formData.designation
+      }
+    };
   }
 
 }

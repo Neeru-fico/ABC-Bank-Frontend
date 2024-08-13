@@ -7,7 +7,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 50px);
+  // height: calc(100vh - 50px);
+}
+
+@media (min-height: 501px) {
+  /* Styles for screens with height greater than 500px */
+  body {
+    height: calc(100vh - 50px);
+  }
 }
 
 /* Container Styles */
@@ -57,7 +64,7 @@ body {
 .content p {
   color: #555555;
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 1rem;
 }
 
