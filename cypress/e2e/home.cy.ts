@@ -1,17 +1,20 @@
-describe('Check Command Delay', () => {
-  it('should apply a 1-second delay to commands', () => {
+describe('Check Command Delay', ()=> {
+  it('should apply a 1-second delay to commands', ()=> {
     cy.visit('http://localhost:4200/');
     
     // Add additional commands to check the delay effect
     cy.get('#submitloan').click();
     
+
     cy.get('#firstName').type('Neeru');
     cy.get('#lastName').type('Giri').wait(1000);
+
     
     cy.get('#dateOfBirth').type('1990-01-01');
     
     cy.get('#maritalStatus').select('Single');
     cy.get('#ssnNumber').type('1024').wait(1000);
+
 
     cy.get('#loanAmount').type('10000');
     cy.get('#loanPurpose').select('Debt');
@@ -37,6 +40,9 @@ describe('Check Command Delay', () => {
 
     cy.get('#submit').click()
 
+    cy.get('#viewApplications').click().wait(10000)
+
+    cy.get('table tr:last-child td a').click();
 
   });
 });
