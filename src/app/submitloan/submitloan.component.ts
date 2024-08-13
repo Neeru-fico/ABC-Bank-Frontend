@@ -2,27 +2,27 @@ import { ApplicationInitStatus, Component, OnInit } from '@angular/core';
 import { SubmitSuccessComponent } from './submit-success/submit-success.component';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-submitloan',
   standalone: true,
-  imports: [SubmitSuccessComponent, RouterLink, ReactiveFormsModule,  CommonModule],
+  imports: [SubmitSuccessComponent, RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './submitloan.component.html',
   styleUrl: './submitloan.component.scss'
 })
 export class SubmitloanComponent implements OnInit {
-  checkSubmit= false;
+  checkSubmit = false;
 
   applicationForm!: FormGroup;
   successMessage: string | null = null;
   errorMessage: string | null = null;
   formErrors: string[] = [];
 
-  minDate:string | null= null;
-  maxDate:string | null= null;
+  minDate: string | null = null;
+  maxDate: string | null = null;
   submitted = false;
 
 
@@ -34,7 +34,7 @@ export class SubmitloanComponent implements OnInit {
     date.setFullYear(date.getFullYear() - 18);
     this.maxDate = date.toISOString().split('T')[0]; // Get only the date part
     const date1 = new Date();
-    date1.setFullYear(date1.getFullYear()-65);
+    date1.setFullYear(date1.getFullYear() - 65);
     this.minDate = date1.toISOString().split('T')[0];
 
   }
@@ -46,7 +46,7 @@ export class SubmitloanComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.maxLength(255)]],
       middleName: ['', Validators.maxLength(255)],
       lastName: ['', [Validators.required, Validators.maxLength(255)]],
-      dateOfBirth: ['', [Validators.required, ageValidator(18,65)]],
+      dateOfBirth: ['', [Validators.required, ageValidator(18, 65)]],
       maritalStatus: ['', Validators.required],
       ssnNumber: ['', Validators.required],
       loanAmount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
@@ -62,15 +62,15 @@ export class SubmitloanComponent implements OnInit {
       phoneMobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       emailAddress: ['', [Validators.required, Validators.email]],
       employerName: ['', Validators.required],
-      annualSalary: ['', [Validators.required,Validators.pattern('^[0-9]*$'), Validators.min(10001)]],
+      annualSalary: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(10001)]],
       workExperienceYears: ['', Validators.required],
       workExperienceMonths: ['', Validators.required],
       designation: ['', Validators.maxLength(255)],
       employerAddressLine1: ['', [Validators.required, Validators.maxLength(255)]],
       employerAddressLine2: ['', [Validators.maxLength(255)]],
       employerCity: ['', [Validators.required, Validators.maxLength(255)]],
-      employerState:['', [Validators.required, Validators.maxLength(255)]],
-      employerPostalCode:['', [Validators.required, Validators.pattern('^[0-9]{5}$')]],
+      employerState: ['', [Validators.required, Validators.maxLength(255)]],
+      employerPostalCode: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]],
     });
   }
 
@@ -80,19 +80,19 @@ export class SubmitloanComponent implements OnInit {
 
     if (this.applicationForm.valid) {
 
-    const workExperienceYears = parseFloat(this.applicationForm.get('workExperienceYears')?.value);
-    const workExperienceMonths = parseFloat(this.applicationForm.get('workExperienceMonths')?.value);
-    const totalWorkExperienceMonths = (workExperienceYears * 12) + workExperienceMonths;
-    if (totalWorkExperienceMonths < 6) {
-      alert('Application declined: Applicant’s work experience must be at least 6 months.');
-      return;
-    }
+      const workExperienceYears = parseFloat(this.applicationForm.get('workExperienceYears')?.value);
+      const workExperienceMonths = parseFloat(this.applicationForm.get('workExperienceMonths')?.value);
+      const totalWorkExperienceMonths = (workExperienceYears * 12) + workExperienceMonths;
+      if (totalWorkExperienceMonths < 6) {
+        alert('Application declined: Applicant’s work experience must be at least 6 months.');
+        return;
+      }
 
-    let applicationData= this.applicationForm.value;
-    applicationData = this.transformData(applicationData)
+      let applicationData = this.applicationForm.value;
+      applicationData = this.transformData(applicationData)
       console.log(applicationData)
 
-        this.checkSubmit=true;
+      this.checkSubmit = true;
       this.http.post('http://localhost:8080/application', applicationData)
         .subscribe(
           (response) => {
@@ -110,15 +110,22 @@ export class SubmitloanComponent implements OnInit {
     }
     else {
       this.displayErrors();
+      const errorsDiv = document.getElementsByClassName('errors');
+      console.log("error div", errorsDiv.length)
+      if (errorsDiv.length !== 0) {
+        const errorsDivElement = errorsDiv[0] as HTMLElement;
+        window.scrollTo(0, errorsDivElement.offsetTop);
+      }
     }
   }
   displayErrors() {
     for (const control in this.applicationForm.controls) {
       if (this.applicationForm.controls[control].invalid) {
         this.formErrors.push(control);
-        
+
       }
     }
+
     console.log(this.formErrors)
 
   }
