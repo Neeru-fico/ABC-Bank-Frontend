@@ -10,7 +10,7 @@
           </div>
 
           <div>
-            <strong>Status: </strong> <span id="staus"> {{ application.applicationStatus }}</span>
+            <strong>Status: </strong> <span id="status"> {{ application.applicationStatus }}</span>
           </div>
           <div>
             <strong>Score: </strong> {{ application.score }}
@@ -21,7 +21,7 @@
         <div>
           <strong>Decline Reason</strong>
           <div >
-            <p *ngIf="application.reason === null"> None</p>
+            <p *ngIf="application.reason === '' || application.reason === null"> None</p>
             <p *ngIf="application.reason !== null"> {{ application.reason}}</p>
           </div>
         </div>

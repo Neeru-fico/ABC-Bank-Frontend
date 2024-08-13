@@ -38,13 +38,13 @@ export class ViewApplicationComponent implements OnInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.updateStatusColors();
-    }, 5000); // Wait for 7 seconds before executing the function
+    }, 100); 
   }
 
   updateStatusColors(): void {
     const status = document.getElementById('status');
     if (status) {
-      if (status.textContent === 'Approved') {
+      if (status.textContent === ' Approved') {
         status.setAttribute('style', 'color: #4fc048');
       } else {
         status.setAttribute('style', 'color: red');
