@@ -17,25 +17,7 @@ export class ViewApplicationComponent implements OnInit {
   applicantAge!:number
   applicantSalary!:number
   applicantExp!:number
-
-
-  // calculateAge(dofb:string, submittedDate:string ){
-  //   let dob = new Date(dofb);
-  //   let currentDate = new Date(submittedDate);
-
-  //   let age = currentDate.getFullYear() - dob.getFullYear();
-
-  //   if (currentDate.getMonth() < dob.getMonth() ||
-  //       (currentDate.getMonth() === dob.getMonth() && currentDate.getDate() < dob.getDate())) {
-  //       age--;
-  //   }
-
-  //   return age;
-  // }
-  // @Input({required:true}) userId!:number
-  // i have a option of changing thw way how i take the data from backend and display on client side
-  // currently i am going witht the form method but if this dosent work, then i can make the interface ofn application form and take the values similar to the one i did in viewapps code
-  // or this can be done vis a versa also.
+  
   constructor(
     private route: ActivatedRoute,
     private viewappsService:ViewappsService ,
@@ -45,15 +27,15 @@ export class ViewApplicationComponent implements OnInit {
  
   ngOnInit(): void {
  
-    this.declineRules=[];
-    console.log(this.declineRules)
+    // this.declineRules=[];
+    // console.log(this.declineRules)
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       console.log("abcd")
       this.viewappsService.getApplicationById(Number(id)).subscribe(data => {
       this.application = data
       console.log(this.application)
-        this.declineRules = this.application.declineReason.split('.');
+        // this.declineRules = this.application.declineReason.split('.');
       });
 
   }

@@ -29,7 +29,7 @@ describe('Check Command Delay', ()=> {
     cy.get('#annualSalary').type('10001').wait(1000);
 
     cy.get('#workExperienceYears').type('0').wait(1000);
-    cy.get('#workExperienceMonths').type('4').wait(1000);
+    cy.get('#workExperienceMonths').type('9').wait(1000);
 
     cy.get('#employerAddressLine1').type('D 227').wait(1000);
     cy.get('#employerCity').type('Bangalore').wait(1000);
@@ -37,5 +37,8 @@ describe('Check Command Delay', ()=> {
     cy.get('#employerPostalCode').type('56005').wait(1000);
 
     cy.get('#submit').click()
+    cy.get('#viewApplications').click().wait(10000)
+
+    cy.get('table tr:last-child td a').click();
   });
 });

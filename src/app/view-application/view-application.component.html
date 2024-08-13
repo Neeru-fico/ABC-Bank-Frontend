@@ -19,9 +19,10 @@
 
 
         <div>
-          
-          <div *ngIf="application.reason !== null">
-            <strong>Decline Reason: </strong>{{ application.reason || 'None' }}
+          <strong>Decline Reason</strong>
+          <div >
+            <p *ngIf="application.reason === null"> None</p>
+            <p *ngIf="application.reason !== null"> {{ application.reason}}</p>
           </div>
         </div>
       </div>

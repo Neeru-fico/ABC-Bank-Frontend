@@ -12,7 +12,7 @@
   <tbody>
 
     <tr *ngFor="let application of applications">
-      <td><a [routerLink]="['/viewapplication', application.applicationID]">{{ application.applicationID }}</a></td>
+      <td ><a id={{application.applicationID}} [routerLink]="['/viewapplication', application.applicationID]">{{ application.applicationID }}</a></td>
 
       <td>{{ application.name.firstName }} {{application.name.middleName}} {{application.name.lastName}}</td>
 
