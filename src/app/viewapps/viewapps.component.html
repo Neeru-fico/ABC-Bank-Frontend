@@ -1,5 +1,5 @@
 <h2>Submitted Applications</h2>
-<p>You can view the applications here:</p>
+<p>You can view your applications here</p>
 <table>
   <thead>
     <tr>
@@ -17,7 +17,7 @@
       <td>{{ application.name.firstName }} {{application.name.middleName}} {{application.name.lastName}}</td>
 
       <td>{{ application.submittedDate }}</td>
-      <td>{{ application.applicationStatus }}</td>
+      <td class="status">{{ application.applicationStatus }}</td>
     </tr>
   </tbody>
 </table>

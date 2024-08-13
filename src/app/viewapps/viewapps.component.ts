@@ -19,7 +19,30 @@ export class ViewappsComponent implements OnInit {
   ngOnInit(): void {
     this.viewappsService.getApplications().subscribe(data => {
       this.applications = data;
-      console.log(this.applications)
     });
+  }
+  
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.updateStatusColors();
+    }, 7000); // Wait for 5 seconds before executing the function
+  }
+
+  updateStatusColors(): void {
+    const statuses = document.getElementsByClassName('status');
+    console.log("here update", statuses.length)
+    // console.log(statuses)
+    for (let i = 0; i < statuses.length; i++) {
+      
+      const statusElement = statuses[i];
+      // console.log("here mfor loop", statusElement.textContent)
+      if (statusElement.textContent === 'Approved') {
+        
+        statusElement.setAttribute('style', 'color: #4fc048');
+      }
+      else{
+        statusElement.setAttribute('style', 'color: red');
+      }
+    }
   }
 }
