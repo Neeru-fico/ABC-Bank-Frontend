@@ -12,33 +12,43 @@ import { CommonModule } from '@angular/common';
   styleUrl: './view-application.component.scss'
 })
 export class ViewApplicationComponent implements OnInit {
-  application: any={};
-  declineRules:string[] =[];
-  applicantAge!:number
-  applicantSalary!:number
-  applicantExp!:number
-  
+  application: any = {};
+  declineRules: string[] = [];
+  applicantAge!: number
+  applicantSalary!: number
+  applicantExp!: number
+
   constructor(
     private route: ActivatedRoute,
-    private viewappsService:ViewappsService ,
+    private viewappsService: ViewappsService,
   ) {
 
   }
+
  
   ngOnInit(): void {
- 
-    // this.declineRules=[];
-    // console.log(this.declineRules)
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      console.log("abcd")
       this.viewappsService.getApplicationById(Number(id)).subscribe(data => {
-      this.application = data
-      console.log(this.application)
-        // this.declineRules = this.application.declineReason.split('.');
+        this.application = data;
       });
+    }
+  }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.updateStatusColors();
+    }, 5000); // Wait for 7 seconds before executing the function
+  }
+
+  updateStatusColors(): void {
+    const status = document.getElementById('status');
+    if (status) {
+      if (status.textContent === 'Approved') {
+        status.setAttribute('style', 'color: #4fc048');
+      } else {
+        status.setAttribute('style', 'color: red');
+      }
+    }
   }
 }
-}
- 

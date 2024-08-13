@@ -40,9 +40,9 @@ body {
 }
 
 
-.view-application div span {
-  font-weight: bold;
-}
+// .view-application div span {
+//   font-weight: bold;
+// }
 
 .view-application div p {
   margin: 0;
@@ -266,4 +266,8 @@ li{
 input[type="checkbox"]:checked + label {
   background-color: #4a74a9; 
   color: white;
+}
+
+.tab div label{
+  font-weight: 500;
 }
